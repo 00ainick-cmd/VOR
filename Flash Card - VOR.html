@@ -146,216 +146,237 @@
 (function(){
   // ---------- Data (embedded directly – no document.write) ----------
   const FIXED_CARDS = [
-  
+
   {
-    "term": "Voltage (V)",
-    "definition": "The electrical pressure or potential difference that causes electrons to flow, often symbolized as E (electromotive force) or V, and is measured in Volts (V) [4-6]. In aircraft, standard DC voltages are typically 14V or 28V [3, 4, 7, 8].",
-    "analogy": "The height of a waterfall or the water pressure in a hose [4-6, 9].",
-    "unit": "Volt (V)",
-    "tags": "DC 101|fundamentals|measurement"
+    "term": "VOR (VHF Omnidirectional Range)",
+    "definition": "A ground-based radio navigation system that provides azimuth (bearing) information to aircraft equipped with VOR receiving equipment. VORs transmit in the VHF frequency band between 108.0 and 117.95 MHz, with the last digit always being odd for voice-equipped stations.",
+    "analogy": "A lighthouse that sends directional radio beams in all 360 directions, allowing aircraft to determine their position relative to the station.",
+    "unit": "VOR Fundamentals",
+    "tags": "fundamentals|navigation|radio_nav"
   },
   {
-    "term": "Current (I)",
-    "definition": "The flow rate of electrons (electrical charge) through a conductor, measured in Amperes (A) [7, 9-11]. Controlling current is essential for safe avionics operation [12].",
-    "analogy": "The flow rate or amount of water moving through a pipe or hose [9, 10, 13].",
-    "unit": "Ampere (A)",
-    "tags": "DC 101|fundamentals|measurement"
+    "term": "VOR Frequency Range",
+    "definition": "VOR stations operate in the VHF band from 108.0 to 117.95 MHz. Frequencies are spaced 50 kHz apart. The lowest 200 channels (108.0-111.95 MHz) are shared with ILS localizer frequencies, while 112.0-117.95 MHz is exclusively for VOR use.",
+    "analogy": "Think of it like FM radio stations, each VOR has its own unique frequency you tune into.",
+    "unit": "VOR Fundamentals",
+    "tags": "fundamentals|frequencies|specifications"
   },
   {
-    "term": "Resistance (R)",
-    "definition": "The opposition or 'friction' to electron flow through a material, measured in Ohms ($\\Omega$) [9, 13-15]. Resistance is used to control current and protect sensitive avionics components [12, 16].",
-    "analogy": "Rocks in a riverbed that impede water flow, or the diameter of a hose (smaller hose = higher resistance) [9, 13, 14].",
-    "unit": "Ohm ($\\Omega$)",
-    "tags": "DC 101|fundamentals|measurement"
+    "term": "VOR Radial",
+    "definition": "A magnetic bearing FROM a VOR station, expressed in degrees from 001° to 360°. Radials extend outward from the station like spokes on a wheel. Aircraft use radials to define their position and establish airways.",
+    "analogy": "Imagine the VOR station as the center of a clock, with 360 hands (radials) pointing outward in all directions.",
+    "unit": "VOR Navigation",
+    "tags": "navigation|radials|position"
   },
   {
-    "term": "Ohm’s Law (V=I×R)",
-    "definition": "The fundamental mathematical relationship describing voltage, current, and resistance: Voltage equals Current multiplied by Resistance (V = I × R) [2, 10, 12, 17, 18]. This is the most important tool for troubleshooting electrical issues [12, 19].",
-    "analogy": "The backbone of every electrical problem solved in a small aircraft [19].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|troubleshooting"
+    "term": "VOR Phase Comparison Principle",
+    "definition": "VOR operates by comparing two 30 Hz signals: a reference phase (omnidirectional) and a variable phase (rotates at 1800 RPM). The phase difference between these signals corresponds to the magnetic bearing from the station. The receiver measures this phase difference to determine the radial.",
+    "analogy": "Like comparing two synchronized clocks; the time difference tells you your angular position around the VOR station.",
+    "unit": "VOR Fundamentals",
+    "tags": "fundamentals|theory|phase_comparison"
   },
   {
-    "term": "Ohm’s Law Triangle",
-    "definition": "A visual memory aid used by technicians where V is placed at the top, and I and R are at the base; covering the desired variable reveals the correct formula [20, 21].",
-    "analogy": "A fast, foolproof method to recall the three core electrical relationships [20].",
-    "unit": "DC 102 (Tool)",
-    "tags": "formula|tool"
+    "term": "CDI (Course Deviation Indicator)",
+    "definition": "The primary navigation instrument displaying VOR information. It shows lateral deviation from a selected course using a vertical needle (left-right). Each dot represents approximately 2° of deviation or 200 feet per nautical mile from the selected course.",
+    "analogy": "Think of it as a visual aid showing how far left or right you are from your desired path, like lane markings on a highway.",
+    "unit": "VOR Instruments",
+    "tags": "instruments|indicators|navigation"
   },
   {
-    "term": "Ohm's Law (Current Formula)",
-    "definition": "A derived formula stating that Current equals Voltage divided by Resistance (I = V $\\div$ R) [10, 17, 22]. This is used to calculate the electrical load to select proper circuit protection [23].",
-    "analogy": "Finding the flow rate when you know the pressure and the size of the restriction [17].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|troubleshooting"
+    "term": "OBS (Omni Bearing Selector)",
+    "definition": "A rotating knob on the VOR indicator that allows the pilot to select any of the 360 radials. Rotating the OBS changes the course displayed on the CDI. It's used to select the desired course TO or FROM the VOR station.",
+    "analogy": "Like a compass rose you can rotate to choose which direction you want to navigate.",
+    "unit": "VOR Instruments",
+    "tags": "instruments|controls|navigation"
   },
   {
-    "term": "Ohm's Law (Resistance Formula)",
-    "definition": "A derived formula stating that Resistance equals Voltage divided by Current (R = V $\\div$ I) [14, 17, 22]. This is used to determine the resistance of components like light bulbs or heating elements [14, 20].",
-    "analogy": "Finding the size of the obstruction when you know the pressure and the flow rate [17].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|troubleshooting"
+    "term": "TO/FROM Indicator",
+    "definition": "A triangular or arrow-shaped indicator showing whether the selected course will take you TO the VOR station or FROM it. When centered, it indicates which direction of travel on the selected radial. A blank or OFF flag indicates unreliable or no signal.",
+    "analogy": "Like a compass showing whether you're heading toward or away from your destination.",
+    "unit": "VOR Instruments",
+    "tags": "instruments|indicators|navigation"
   },
   {
-    "term": "Electrical Power (P)",
-    "definition": "The rate of doing work or consuming energy in a circuit, calculated primarily using P = V $\\times$ I [24-27]. Power calculations are critical for proper wire sizing and circuit breaker selection [2, 25, 28, 29].",
-    "analogy": "The volume or amount of work being produced, or the energy consumed by a device [24, 30, 31].",
-    "unit": "Watt (W)",
-    "tags": "DC 102|calculations|safety"
+    "term": "VOR Station Identification",
+    "definition": "Each VOR transmits a unique three-letter Morse code identifier every 10 seconds or less, and may include voice identification. Technicians must verify the identifier before using the station for navigation. A T-E-S-T code or absence of identification indicates the station is unreliable.",
+    "analogy": "Like a station ID on a radio broadcast, ensuring you're tuned to the correct navigation facility.",
+    "unit": "VOR Operations",
+    "tags": "operations|identification|safety"
   },
   {
-    "term": "Watt's Law (Derived)",
-    "definition": "Alternative formulas derived from Ohm's Law and Power, such as P = I² $\\times$ R and P = V² $\\div$ R, useful when current or voltage measurements are difficult to obtain [25, 26, 32, 33].",
-    "analogy": "Alternative routes to calculate the work being done if you can't measure all the basic variables [32].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|calculations"
+    "term": "VOR Service Volumes",
+    "definition": "VORs are classified by power output and designated service volume: Terminal (T) 25 NM up to 12,000 ft, Low (L) 40 NM up to 18,000 ft, and High (H) 40 NM up to 14,500 ft, 100 NM from 14,500 to 60,000 ft, and 130 NM from 60,000 to FL450.",
+    "analogy": "Like cell phone coverage zones - stronger towers reach farther and higher.",
+    "unit": "VOR Operations",
+    "tags": "operations|service_volume|coverage"
   },
   {
-    "term": "Conductor",
-    "definition": "Materials, typically metals like copper or aluminum, that allow electricity to flow easily because they have many free valence electrons and low resistance [14, 15, 34, 35].",
-    "analogy": "A clear, wide highway for the smooth flow of electrical current [34].",
-    "unit": "DC 101 (Material)",
-    "tags": "fundamentals|materials"
+    "term": "VOR Accuracy Standard",
+    "definition": "VOR ground stations must maintain bearing accuracy within ±1° under normal conditions. Airborne VOR receivers must be accurate within ±4° when tested using a VOT (VOR Test Facility), VOR checkpoint, or airborne checkpoint.",
+    "analogy": "Like ensuring a compass is properly calibrated - small errors multiply over long distances.",
+    "unit": "VOR Testing",
+    "tags": "testing|accuracy|standards"
   },
   {
-    "term": "Insulator",
-    "definition": "Materials, such as rubber or plastic, that block or highly resist the flow of electricity, used in avionics for wire jackets and safety barriers [14, 34, 36].",
-    "analogy": "A physical barrier or safety fence confining the electrical current to its intended path [34, 37].",
-    "unit": "DC 101 (Material)",
-    "tags": "fundamentals|materials"
+    "term": "VOT (VOR Test Facility)",
+    "definition": "A ground-based test facility that transmits a 360° radial (or 180° in some cases) for VOR receiver testing. When tuned to the VOT frequency, the CDI should center on 360° (or 180°) with a FROM indication (or TO for 180°). Tolerance is ±4°.",
+    "analogy": "Like a calibration station for your navigation equipment, providing a known reference signal.",
+    "unit": "VOR Testing",
+    "tags": "testing|maintenance|calibration"
   },
   {
-    "term": "Semiconductor",
-    "definition": "Materials, like silicon, with electrical properties between conductors and insulators, used in modern solid-state electronics like transistors and diodes where conductivity can be controlled [14, 34, 37, 38].",
-    "analogy": "The basis of all modern electronic components that can act as a controlled switch [34].",
-    "unit": "DC 101 (Material)",
-    "tags": "fundamentals|materials|devices"
+    "term": "VORTAC",
+    "definition": "A navigation facility combining VOR (for civilian use) and TACAN (Tactical Air Navigation for military) at the same location. It provides both azimuth information (VOR) and distance information (DME/TACAN) to equipped aircraft.",
+    "analogy": "Like a combination GPS and compass - tells you both direction and distance to the station.",
+    "unit": "VOR Types",
+    "tags": "facilities|VORTAC|military"
   },
   {
-    "term": "Electron",
-    "definition": "Tiny negatively charged particles orbiting the atom's nucleus [39, 40]. The directed movement of valence electrons from atom to atom creates electrical current [41, 42].",
-    "analogy": "The moving charge carriers that make up electricity [41].",
-    "unit": "DC 101 (Physics)",
-    "tags": "atomic_theory"
+    "term": "VOR/DME",
+    "definition": "A VOR facility co-located with Distance Measuring Equipment (DME). The DME operates on UHF frequencies (960-1215 MHz) and provides slant-range distance to the station, while VOR provides bearing information. Together they provide complete position fixing.",
+    "analogy": "Like having both a compass and a rangefinder to pinpoint your exact location.",
+    "unit": "VOR Types",
+    "tags": "facilities|DME|navigation"
   },
   {
-    "term": "Proton",
-    "definition": "Positively charged particle located within the nucleus of an atom [39, 40]. Protons contribute to the mass and stability of the atom [42].",
-    "analogy": "A fundamental positive charge at the core of matter [39].",
-    "unit": "DC 101 (Physics)",
-    "tags": "atomic_theory"
+    "term": "DVOR (Doppler VOR)",
+    "definition": "An advanced VOR system using Doppler effect instead of mechanical rotation to generate the variable phase signal. DVORs are more accurate and reliable than conventional VORs, with less site error and reduced maintenance requirements.",
+    "analogy": "Like upgrading from a mechanical watch to a digital one - same function, better accuracy and reliability.",
+    "unit": "VOR Types",
+    "tags": "facilities|DVOR|technology"
   },
   {
-    "term": "Series Circuit",
-    "definition": "A configuration where components are connected end-to-end in a single, unbroken path [2, 43-46]. The same current flows through all components [43, 44, 46-48].",
-    "analogy": "A single chain of components; one failure stops the entire circuit [43, 46, 49].",
-    "unit": "DC 103 (Circuit Type)",
-    "tags": "circuit_type"
+    "term": "VOR Receiver Sensitivity",
+    "definition": "The minimum signal strength required for the VOR receiver to provide usable navigation information, typically around 90 dBm (1 microvolt). Weak signals result in flag warnings and unreliable navigation data. Proper antenna installation and cable integrity are critical.",
+    "analogy": "Like needing a minimum cell phone signal strength to make a clear call.",
+    "unit": "VOR Receiver",
+    "tags": "receiver|sensitivity|performance"
   },
   {
-    "term": "Parallel Circuit",
-    "definition": "A configuration where components are connected across common voltage points, offering multiple independent current paths [2, 50-53]. The voltage is the same across all branches [53-56].",
-    "analogy": "Modern household wiring or aircraft distribution where turning off one device doesn't affect others [54, 57, 58].",
-    "unit": "DC 103 (Circuit Type)",
-    "tags": "circuit_type"
+    "term": "VOR Antenna Placement",
+    "definition": "VOR antennas must be mounted with clear line-of-sight to the horizon, typically on top of the vertical stabilizer or fuselage. Metallic obstructions can cause reflections and bearing errors. Balanced dipole or counterpoise antennas are commonly used.",
+    "analogy": "Like mounting a TV antenna high and clear for best reception, away from metal that might cause interference.",
+    "unit": "VOR Installation",
+    "tags": "installation|antenna|maintenance"
   },
   {
-    "term": "Complex Circuit",
-    "definition": "A combination of both series and parallel elements, common in avionics installations where safety and independent operation are required [2, 53-55].",
-    "analogy": "Wiring the power wire on multiple components in parallel, which then runs in series to a circuit breaker [54].",
-    "unit": "DC 103 (Circuit Type)",
-    "tags": "circuit_type"
+    "term": "VOR Bearing Pointer (RMI)",
+    "definition": "On a Radio Magnetic Indicator (RMI), the VOR bearing pointer automatically rotates to point toward the VOR station regardless of aircraft heading. This provides quick situational awareness without mental calculation of relative bearing.",
+    "analogy": "Like a compass needle that always points to a specific landmark instead of magnetic north.",
+    "unit": "VOR Instruments",
+    "tags": "instruments|RMI|navigation"
   },
   {
-    "term": "Kirchhoff's Voltage Law (KVL)",
-    "definition": "States that the sum of all voltage drops around any closed loop in a circuit must equal the total supply voltage (or sum to zero) [2, 43, 59-61]. Essential for ensuring components receive correct voltage [62].",
-    "analogy": "The source voltage must be entirely consumed by the components in the loop [63].",
-    "unit": "DC 103 (Law)",
-    "tags": "law|series|troubleshooting"
+    "term": "VOR Station Declination",
+    "definition": "VOR radials are aligned with magnetic north at the time of station commissioning. However, magnetic variation changes over time, requiring periodic station re-alignment. The station broadcasts magnetic bearings, not true bearings.",
+    "analogy": "Like having to update old maps because magnetic north slowly moves over the years.",
+    "unit": "VOR Operations",
+    "tags": "operations|magnetic_variation|accuracy"
   },
   {
-    "term": "Kirchhoff's Current Law (KCL)",
-    "definition": "States that the total current entering a junction must equal the total current leaving the junction [2, 54, 64-66]. This ensures current is properly distributed across all parallel branches [67].",
-    "analogy": "A rule ensuring no current is lost or created at a junction point where wires meet [67].",
-    "unit": "DC 103 (Law)",
-    "tags": "law|parallel|troubleshooting"
+    "term": "VOR Flag Alarm",
+    "definition": "A visual warning (red flag or OFF indication) that appears when VOR signal reliability falls below acceptable limits due to weak signal, station outage, or receiver malfunction. Navigation using a flagged VOR is unreliable and prohibited for IFR flight.",
+    "analogy": "Like a 'check engine' light for your navigation system - warns you when the system is not trustworthy.",
+    "unit": "VOR Instruments",
+    "tags": "instruments|warnings|safety"
   },
   {
-    "term": "Series Resistance Formula",
-    "definition": "Total resistance in a series circuit is the sum of all individual resistances: R_total = R₁ + R₂ + R₃ + ... [43, 49, 51, 68]. Adding components increases the total resistance [49, 68].",
-    "analogy": "Total friction is the sum of every rough spot the current encounters in its single path [68].",
-    "unit": "DC 103 (Formula)",
-    "tags": "formula|series"
+    "term": "VOR Course Intercept",
+    "definition": "The technique of intercepting a desired VOR radial by flying a heading that creates a measurable angle to the course. Common intercept angles are 30°, 45°, or 90° depending on distance from the station and urgency. As the needle centers, turn to track the radial.",
+    "analogy": "Like merging onto a highway - you approach at an angle, then straighten out once you're on the road.",
+    "unit": "VOR Navigation",
+    "tags": "navigation|procedures|flight_techniques"
   },
   {
-    "term": "Parallel Resistance Formula",
-    "definition": "Total resistance is the reciprocal of the sum of the individual reciprocals: 1/R_total = 1/R₁ + 1/R₂ + ... [54, 55, 69, 70]. The total resistance is always less than the smallest individual resistor [54, 69, 71].",
-    "analogy": "Adding multiple paths makes it easier for the current to flow, reducing the overall resistance [69].",
-    "unit": "DC 103 (Formula)",
-    "tags": "formula|parallel"
+    "term": "VOR Reverse Sensing",
+    "definition": "A navigation error that occurs when flying outbound from a VOR with the OBS set to the reciprocal course. The CDI needle deflects opposite to the correction needed. Always use FROM indication when flying away from a station to prevent reverse sensing.",
+    "analogy": "Like backing up a car - the steering feels backwards until you adjust your mental model.",
+    "unit": "VOR Navigation",
+    "tags": "navigation|errors|procedures"
   },
   {
-    "term": "Open Circuit",
-    "definition": "A fault caused by a break or disconnection in the current path, resulting in infinite resistance (O.L.) and zero current flow (0 Amps) [2, 72-74].",
-    "analogy": "A dammed river or a broken wire; the current stops completely [72, 75].",
-    "unit": "DC 103 (Fault)",
-    "tags": "fault|troubleshooting"
+    "term": "VOR Scalloping",
+    "definition": "Irregular course indications that occur when an aircraft is close to a VOR station, caused by the cone of confusion directly over the station. The TO/FROM indicator becomes unstable, and the CDI may oscillate. Normal operation resumes once clear of the station.",
+    "analogy": "Like the dead spot directly under a water sprinkler where you can't tell which direction the water is coming from.",
+    "unit": "VOR Operations",
+    "tags": "operations|cone_of_confusion|limitations"
   },
   {
-    "term": "Short Circuit",
-    "definition": "A dangerous fault where current takes an unintended low-resistance path, causing excessive current flow that can trip circuit protection or cause fires [2, 73, 76, 77].",
-    "analogy": "Electrons taking the least resistive path, such as through a carelessly dropped metal wrench across battery terminals [76].",
-    "unit": "DC 103 (Fault)",
-    "tags": "fault|safety"
+    "term": "VOR Propagation Characteristics",
+    "definition": "VOR signals travel by line-of-sight and are subject to VHF propagation limitations. Terrain, buildings, and the curvature of the earth can block signals. Altitude increases reception range following the radio horizon formula: distance ≈ 1.23 × √altitude.",
+    "analogy": "Like how you can see farther from a mountaintop - higher altitude equals better VOR reception range.",
+    "unit": "VOR Fundamentals",
+    "tags": "fundamentals|propagation|line_of_sight"
   },
   {
-    "term": "Voltage Drop",
-    "definition": "The reduction in voltage across a component in a circuit as energy is consumed, calculated using Ohm's Law (V = I $\\times$ R) [2, 47, 63]. High-resistance connections (corrosion) cause unwanted voltage drops [28, 78].",
-    "analogy": "The amount of pressure lost as water passes through a small pipe or filter [6, 62].",
-    "unit": "DC 103 (Concept)",
-    "tags": "troubleshooting"
+    "term": "VOR Cone of Confusion",
+    "definition": "The area directly above a VOR station where signals are unreliable or absent. In this region, the TO/FROM indicator fluctuates or shows OFF, and bearing information is unusable. The cone typically extends from the station to about 3,000 feet AGL with a 50° apex angle.",
+    "analogy": "Like standing directly under a lighthouse - you can't determine direction when you're right on top of it.",
+    "unit": "VOR Operations",
+    "tags": "operations|cone_of_confusion|limitations"
   },
   {
-    "term": "Multimeter",
-    "definition": "A handheld test instrument essential for avionics technicians used to measure fundamental electrical quantities: voltage, current, and resistance [2, 59, 79].",
-    "analogy": "The primary diagnostic tool, allowing technicians to interpret electrical system health [59, 80].",
-    "unit": "DC 103 (Tool)",
-    "tags": "tool|measurement"
+    "term": "VOR Checkpoint (Ground)",
+    "definition": "A designated location on an airport where VOR receiver accuracy can be tested. The published radial and location are marked in the Chart Supplement. The receiver must indicate within ±4° of the published radial. Required for IFR flight every 30 days.",
+    "analogy": "Like a marked spot in a parking lot where you can verify your compass reading against a known direction.",
+    "unit": "VOR Testing",
+    "tags": "testing|checkpoints|maintenance"
   },
   {
-    "term": "Measuring Voltage (Procedure)",
-    "definition": "Voltage is measured by connecting the multimeter probes *across* (in parallel with) the component or circuit being tested [2, 6, 7, 51]. This must be done while the circuit is powered ON [81].",
-    "analogy": "Measuring the pressure difference between the inlet and outlet of a device [7].",
-    "unit": "DC 103 (Procedure)",
-    "tags": "multimeter|procedure"
+    "term": "VOR Checkpoint (Airborne)",
+    "definition": "A designated point in flight where VOR bearing accuracy can be verified, typically over a prominent landmark at a specific altitude. The receiver must indicate within ±6° of the published radial. Used when ground checkpoints are not available.",
+    "analogy": "Like using a known mountain peak to verify your compass heading while flying.",
+    "unit": "VOR Testing",
+    "tags": "testing|checkpoints|airborne"
   },
   {
-    "term": "Measuring Current (Procedure)",
-    "definition": "Current is measured by inserting the multimeter *into* (in series with) the circuit, physically breaking the current path so the flow runs through the meter [2, 13, 51, 82, 83]. This must be done carefully to avoid blowing fuses [2, 84].",
-    "analogy": "Cutting a pipe and routing the entire water flow through a flow meter [83, 84].",
-    "unit": "DC 103 (Procedure)",
-    "tags": "multimeter|procedure"
+    "term": "VOR Dual Check",
+    "definition": "When two independent VOR receivers are installed, they can be tuned to the same VOR station for comparison. The indicated bearings must agree within 4° of each other. This is an acceptable alternative to VOT, ground, or airborne checkpoints.",
+    "analogy": "Like comparing two thermometers to make sure they both read the same temperature.",
+    "unit": "VOR Testing",
+    "tags": "testing|dual_check|procedures"
   },
   {
-    "term": "Measuring Resistance (Procedure)",
-    "definition": "Resistance is measured by connecting the multimeter probes across the component, but the circuit power must be completely OFF to prevent damage to the meter and ensure accurate results [17, 51, 85].",
-    "analogy": "Checking the impedance of a wire or component when it is completely isolated [85].",
-    "unit": "DC 103 (Procedure)",
-    "tags": "multimeter|procedure"
+    "term": "VOR Site Error",
+    "definition": "Bearing inaccuracies caused by terrain reflections, buildings, or other obstructions near the VOR ground station. Site errors are minimized during station installation through careful siting and calibration flights. DVORs are less susceptible to site errors than conventional VORs.",
+    "analogy": "Like how mountains can create echoes - nearby obstacles can reflect VOR signals and cause false readings.",
+    "unit": "VOR Errors",
+    "tags": "errors|site_error|accuracy"
   },
   {
-    "term": "Electrostatic Discharge (ESD)",
-    "definition": "The rapid transfer of static electrical charge built up on an object [2, 86]. This poses a serious hazard as it can damage sensitive avionics components like microprocessors [2, 76, 87].",
-    "analogy": "The invisible static shock that can 'fry' delicate circuits [88].",
-    "unit": "DC 101 (Safety)",
-    "tags": "safety|maintenance"
+    "term": "VOR Quadrantal Error",
+    "definition": "Aircraft-induced errors caused by VOR signal reflection off the aircraft structure, varying with aircraft heading. This error follows a predictable pattern in 90° quadrants. Proper antenna placement and compass calibration minimize quadrantal error.",
+    "analogy": "Like how your car's metal body can affect compass readings differently depending on which direction you're facing.",
+    "unit": "VOR Errors",
+    "tags": "errors|aircraft_error|installation"
   },
   {
-    "term": "ESD Precautions",
-    "definition": "Safety procedures, such as using grounding straps and anti-static mats, designed to safely discharge built-up static electricity before handling sensitive electronics [2, 89].",
-    "analogy": "Grounding oneself to prevent static discharge from destroying microprocessors [89, 90].",
-    "unit": "DC 101 (Safety)",
-    "tags": "safety|maintenance"
+    "term": "VOR Course Sensitivity",
+    "definition": "The angular deviation per dot on the CDI is constant at approximately 2° per dot regardless of distance from the station. This means course width increases with distance (200 ft/NM × distance). Close to the station, small heading changes cause large needle movements.",
+    "analogy": "Like the expanding beam of a flashlight - the farther away you are, the wider the coverage area becomes.",
+    "unit": "VOR Navigation",
+    "tags": "navigation|sensitivity|course_width"
+  },
+  {
+    "term": "VOR Monitor System",
+    "definition": "Automated equipment at VOR ground stations that continuously checks signal integrity, bearing accuracy, and transmitter power. If parameters exceed tolerances, the monitor automatically removes the identifier or shuts down the station to prevent unreliable navigation.",
+    "analogy": "Like a smoke detector that automatically alerts when something is wrong with the system.",
+    "unit": "VOR Facilities",
+    "tags": "facilities|monitoring|safety"
+  },
+  {
+    "term": "VOR Navigation Logging",
+    "definition": "FAA requires that VOR receiver checks be logged with: date, place, bearing error, and technician signature. Logs must be retained and available for inspection. Required every 30 days for IFR operations under FAR 91.171.",
+    "analogy": "Like keeping a maintenance log for your car - proving the equipment has been properly checked.",
+    "unit": "VOR Testing",
+    "tags": "testing|documentation|regulations"
+  },
+  {
+    "term": "VOR Localizer Frequency Pairing",
+    "definition": "In the 108.0-111.95 MHz range, VOR and ILS localizer frequencies are interleaved. Even tenth frequencies (108.1, 108.3, etc.) are typically localizers, while odd tenth frequencies are VORs. Modern receivers automatically recognize the signal type.",
+    "analogy": "Like how AM and FM radio stations share spectrum space - VOR and ILS take turns using frequencies.",
+    "unit": "VOR Fundamentals",
+    "tags": "fundamentals|ILS|frequencies"
   }
   ];
 

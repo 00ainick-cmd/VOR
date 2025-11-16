@@ -575,372 +575,372 @@
 const QUESTION_BANK = {
   // ==================== ROUND 1: JEOPARDY ====================
 
-  "DC Concepts": [
+  "VOR Basics": [
     {
-      id: "dc-001",
+      id: "vor-001",
       difficulty: 1,
       pointValue: 100,
       timeLimit: 10,
-      question: "This is the unit of measurement for electrical 'pressure' or potential difference.",
-      answers: ["Amperes (Amps)", "Ohms (Ω)", "Volts (V)", "Watts (W)"],
-      correctIndex: 2,
-      explanation: "Voltage (Volts) is the electrical pressure that causes current to flow.",
-      reference: "Fundamentals of DC"
+      question: "VOR stands for this type of VHF navigation system.",
+      answers: ["VHF Omni Radar", "VHF Omnidirectional Range", "Very high Optical Receiver", "Visual Orientation Radial"],
+      correctIndex: 1,
+      explanation: "VOR stands for VHF Omnidirectional Range, providing azimuth (bearing) information to aircraft.",
+      reference: "VOR Fundamentals"
     },
     {
-      id: "dc-002",
+      id: "vor-002",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "This is the unit of measurement for the rate of electron flow in a circuit.",
-      answers: ["Amperes (Amps)", "Ohms (Ω)", "Volts (V)", "Watts (W)"],
-      correctIndex: 0,
-      explanation: "Current (Amperes) is the measure of how many electrons flow past a point per second.",
-      reference: "Fundamentals of DC"
+      question: "VOR stations operate in this VHF frequency range.",
+      answers: ["118.0 to 135.95 MHz", "108.0 to 117.95 MHz", "960 to 1215 MHz", "225 to 400 MHz"],
+      correctIndex: 1,
+      explanation: "VOR stations transmit in the VHF band from 108.0 to 117.95 MHz, spaced 50 kHz apart.",
+      reference: "VOR Frequencies"
     },
     {
-      id: "dc-003",
+      id: "vor-003",
       difficulty: 3,
       pointValue: 300,
       timeLimit: 14,
-      question: "A material, like rubber or plastic, that strongly opposes the flow of current is called:",
-      answers: ["A conductor", "A semiconductor", "A resistor", "An insulator"],
-      correctIndex: 3,
-      explanation: "Insulators have very high resistance and are used to prevent current from flowing where it is not wanted.",
-      reference: "Conductors vs. Insulators"
+      question: "A VOR radial is defined as a magnetic bearing in this direction from the station.",
+      answers: ["TO the station", "FROM the station", "Around the station", "Above the station"],
+      correctIndex: 1,
+      explanation: "A VOR radial is a magnetic bearing FROM the VOR station, extending outward like spokes on a wheel.",
+      reference: "VOR Radials"
     },
     {
-      id: "dc-004",
+      id: "vor-004",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 15,
-      question: "This is the unit of measurement for the opposition to current flow.",
-      answers: ["Amperes (Amps)", "Ohms (Ω)", "Volts (V)", "Watts (W)"],
-      correctIndex: 1,
-      explanation: "Resistance (Ohms) is the property that opposes the flow of current.",
-      reference: "Fundamentals of DC"
+      question: "VOR determines bearing by comparing two signals at this frequency.",
+      answers: ["9960 Hz", "1020 Hz", "30 Hz", "400 Hz"],
+      correctIndex: 2,
+      explanation: "VOR compares two 30 Hz signals: a reference phase and a variable phase that rotates at 1800 RPM.",
+      reference: "VOR Phase Comparison"
     },
     {
-      id: "dc-005",
+      id: "vor-005",
       difficulty: 4,
       pointValue: 500,
       timeLimit: 18,
-      question: "In 'Direct Current' (DC), the electrons flow in:",
-      answers: ["Two directions, alternating", "One direction only", "A circular, spinning pattern", "High-frequency pulses"],
+      question: "In the 108.0-111.95 MHz range, VOR frequencies typically use this decimal pattern.",
+      answers: ["Even tenths (.0, .2, .4, .6, .8)", "Odd tenths (.1, .3, .5, .7, .9)", "All frequencies", "Only whole numbers"],
       correctIndex: 1,
-      explanation: "Direct Current (DC) is defined by its unidirectional flow, typically from negative to positive.",
-      reference: "AC vs. DC"
+      explanation: "VORs use odd tenth frequencies (.1, .3, .5, .7, .9) while ILS localizers use even tenths in the shared range.",
+      reference: "VOR/ILS Frequency Pairing"
     }
   ],
 
-  "Ohm's Law": [
+  "VOR Instruments": [
     {
-      id: "ohm-001",
+      id: "inst-001",
       difficulty: 1,
       pointValue: 100,
       timeLimit: 10,
-      question: "What is the correct formula for Ohm's Law?",
-      answers: ["V = I x R", "R = V x I", "I = V x R", "P = V x I"],
-      correctIndex: 0,
-      explanation: "Ohm's Law states Voltage (V) equals Current (I) multiplied by Resistance (R).",
-      reference: "Ohm's Law Formula"
+      question: "CDI stands for this primary VOR navigation instrument.",
+      answers: ["Compass Direction Indicator", "Course Deviation Indicator", "Central Display Interface", "Corrected Distance Indicator"],
+      correctIndex: 1,
+      explanation: "CDI (Course Deviation Indicator) displays lateral deviation from a selected course using a vertical needle.",
+      reference: "VOR Instruments"
     },
     {
-      id: "ohm-002",
+      id: "inst-002",
       difficulty: 2,
       pointValue: 200,
-      timeLimit: 15,
-      question: "A 10-ohm resistor has 2 amps of current flowing through it. What is the voltage drop across it?",
-      answers: ["5 Volts", "12 Volts", "0.2 Volts", "20 Volts"],
-      correctIndex: 3,
-      explanation: "Using V = I x R: 2 Amps * 10 Ohms = 20 Volts.",
-      reference: "Ohm's Law Calculation"
+      timeLimit: 12,
+      question: "Each dot on the CDI represents approximately this many degrees of deviation.",
+      answers: ["1 degree", "2 degrees", "5 degrees", "10 degrees"],
+      correctIndex: 1,
+      explanation: "Each CDI dot represents approximately 2° of deviation, or about 200 feet per nautical mile from course.",
+      reference: "CDI Sensitivity"
     },
     {
-      id: "ohm-003",
+      id: "inst-003",
       difficulty: 3,
       pointValue: 300,
-      timeLimit: 15,
-      question: "A 28-volt circuit has a resistance of 7 ohms. How much current is flowing?",
-      answers: ["4 Amps", "196 Amps", "21 Amps", "0.25 Amps"],
+      timeLimit: 14,
+      question: "OBS stands for this VOR control that selects desired radials.",
+      answers: ["Omni Bearing Selector", "Outbound Bearing System", "Orbital Bearing Sensor", "Offset Bearing Scale"],
       correctIndex: 0,
-      explanation: "Using I = V / R: 28 Volts / 7 Ohms = 4 Amps.",
-      reference: "Ohm's Law Calculation"
+      explanation: "OBS (Omni Bearing Selector) is the rotating knob that allows selection of any of the 360 radials.",
+      reference: "VOR Controls"
     },
     {
-      id: "ohm-004",
+      id: "inst-004",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 15,
-      question: "A lamp connected to a 14-volt source draws 2 amps. What is the lamp's resistance?",
-      answers: ["28 Ohms", "12 Ohms", "7 Ohms", "16 Ohms"],
-      correctIndex: 2,
-      explanation: "Using R = V / I: 14 Volts / 2 Amps = 7 Ohms.",
-      reference: "Ohm's Law Calculation"
+      question: "A blank or OFF flag on the VOR indicator means this about the signal.",
+      answers: ["Signal is too strong", "Signal is unreliable or absent", "Station is in test mode only", "Aircraft is too high"],
+      correctIndex: 1,
+      explanation: "An OFF flag indicates unreliable or no signal due to weak reception, station outage, or receiver malfunction.",
+      reference: "VOR Flag Warnings"
     },
     {
-      id: "ohm-005",
+      id: "inst-005",
       difficulty: 4,
       pointValue: 500,
       timeLimit: 18,
-      question: "In a circuit with constant voltage, if you double the resistance, what happens to the current?",
-      answers: ["It doubles", "It stays the same", "It is cut in half", "It becomes zero"],
-      correctIndex: 2,
-      explanation: "Current and resistance are inversely proportional (I = V/R). If R doubles, I is halved.",
-      reference: "Ohm's Law Relationships"
+      question: "The TO/FROM indicator shows this when you are on a radial flying away from the station.",
+      answers: ["TO", "FROM", "OFF", "It alternates"],
+      correctIndex: 1,
+      explanation: "When flying away from the station on a radial, the TO/FROM indicator shows FROM.",
+      reference: "TO/FROM Indicator"
     }
   ],
 
-  "The Power Law": [
+  "VOR Navigation": [
     {
-      id: "pwr-001",
+      id: "nav-001",
       difficulty: 1,
       pointValue: 100,
       timeLimit: 10,
-      question: "What is the basic formula for electrical power (Watt's Law)?",
-      answers: ["P = I x R", "P = V / I", "P = V x I", "P = V / R"],
+      question: "Each VOR station identifies itself by transmitting this type of code.",
+      answers: ["Binary code", "Voice only", "Three-letter Morse code", "Numeric identifier"],
       correctIndex: 2,
-      explanation: "Power (P) in Watts equals Voltage (V) multiplied by Current (I).",
-      reference: "Power Law Formula"
+      explanation: "VOR stations transmit a unique three-letter Morse code identifier every 10 seconds or less.",
+      reference: "VOR Station Identification"
     },
     {
-      id: "pwr-002",
+      id: "nav-002",
       difficulty: 2,
       pointValue: 200,
-      timeLimit: 15,
-      question: "A 28V circuit is drawing 10 amps. How much power is being consumed?",
-      answers: ["2.8 Watts", "280 Watts", "38 Watts", "0.35 Watts"],
-      correctIndex: 1,
-      explanation: "Using P = V x I: 28 Volts * 10 Amps = 280 Watts.",
-      reference: "Power Law Calculation"
+      timeLimit: 12,
+      question: "This Morse code identifier means the VOR station is unreliable.",
+      answers: ["T-E-S-T", "O-F-F", "N-O-G-O", "F-A-I-L"],
+      correctIndex: 0,
+      explanation: "A T-E-S-T identifier or absence of identification indicates the VOR is unreliable and should not be used.",
+      reference: "VOR Test Mode"
     },
     {
-      id: "pwr-003",
+      id: "nav-003",
       difficulty: 3,
       pointValue: 300,
-      timeLimit: 15,
-      question: "What is the alternate formula for power when you only know current and resistance?",
-      answers: ["P = I² / R", "P = R² / I", "P = I x R²", "P = I² x R"],
-      correctIndex: 3,
-      explanation: "Since V = IR, substitute (IR) for V in P=VI, which gives P = (IR)I, or P = I²R.",
-      reference: "Power Law Formula"
+      timeLimit: 14,
+      question: "This navigation error occurs when flying outbound with the OBS set to the reciprocal course.",
+      answers: ["Cone of confusion", "Reverse sensing", "Scalloping", "Quadrantal error"],
+      correctIndex: 1,
+      explanation: "Reverse sensing makes the CDI needle deflect opposite to the correction needed. Use FROM indication when flying away.",
+      reference: "VOR Reverse Sensing"
     },
     {
-      id: "pwr-004",
+      id: "nav-004",
       difficulty: 3,
       pointValue: 400,
-      timeLimit: 18,
-      question: "A 100-ohm resistor has 2 amps flowing through it. How much power is it dissipating?",
-      answers: ["200 Watts", "50 Watts", "400 Watts", "0.02 Watts"],
+      timeLimit: 15,
+      question: "The area directly above a VOR station where signals are unreliable is called this.",
+      answers: ["Dead zone", "Null area", "Cone of confusion", "Signal void"],
       correctIndex: 2,
-      explanation: "Using P = I² x R: (2 Amps * 2 Amps) * 100 Ohms = 400 Watts.",
-      reference: "Power Law Calculation"
+      explanation: "The cone of confusion extends from the station to about 3,000 feet AGL where TO/FROM fluctuates and bearing is unusable.",
+      reference: "Cone of Confusion"
     },
     {
-      id: "pwr-005",
+      id: "nav-005",
       difficulty: 4,
       pointValue: 500,
       timeLimit: 18,
-      question: "What is the alternate formula for power when you only know voltage and resistance?",
-      answers: ["P = V² / R", "P = R² / V", "P = V x R²", "P = V² x R"],
-      correctIndex: 0,
-      explanation: "Since I = V/R, substitute (V/R) for I in P=VI, which gives P = V(V/R), or P = V²/R.",
-      reference: "Power Law Formula"
+      question: "Course width from a VOR increases at approximately this rate per nautical mile.",
+      answers: ["100 feet/NM", "200 feet/NM", "400 feet/NM", "1000 feet/NM"],
+      correctIndex: 1,
+      explanation: "Course width increases at 200 feet per nautical mile (based on 2° per dot CDI sensitivity).",
+      reference: "VOR Course Sensitivity"
     }
   ],
 
   // ==================== ROUND 2: DOUBLE JEOPARDY ====================
 
-  "Series Circuits": [
+  "VOR Testing": [
     {
-      id: "ser-201",
+      id: "test-201",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "In a series circuit, the total resistance (Rt) is calculated by:",
-      answers: ["Averaging all resistors", "Using the smallest resistor value", "Adding all individual resistances", "Rt = (R1*R2)/(R1+R2)"],
-      correctIndex: 2,
-      explanation: "In a series circuit, resistances add up: Rt = R1 + R2 + R3 + ...",
-      reference: "Series Circuit Rules"
+      question: "VOR ground stations must maintain bearing accuracy within this tolerance.",
+      answers: ["±0.5°", "±1°", "±2°", "±4°"],
+      correctIndex: 1,
+      explanation: "VOR ground stations must maintain bearing accuracy within ±1° under normal conditions.",
+      reference: "VOR Accuracy Standards"
     },
     {
-      id: "ser-202",
+      id: "test-202",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 14,
-      question: "What is the rule for current in a series circuit?",
-      answers: ["It is the same through all components", "It divides at each component", "It is highest at the last component", "It is zero at the end of the loop"],
-      correctIndex: 0,
-      explanation: "A series circuit has only one path, so the current (flow) must be the same everywhere.",
-      reference: "Series Circuit Rules"
+      question: "VOT stands for this type of VOR test facility.",
+      answers: ["VOR Offset Test", "VOR Omni Tracker", "VOR Test Facility", "VOR Operational Tester"],
+      correctIndex: 2,
+      explanation: "VOT (VOR Test Facility) transmits a 360° radial for receiver testing with ±4° tolerance.",
+      reference: "VOR Testing"
     },
     {
-      id: "ser-203",
+      id: "test-203",
       difficulty: 4,
       pointValue: 600,
       timeLimit: 16,
-      question: "Three resistors are in series: 10 ohms, 20 ohms, and 30 ohms. What is the total resistance?",
-      answers: ["30 Ohms", "5.45 Ohms", "60 Ohms", "6000 Ohms"],
-      correctIndex: 2,
-      explanation: "Rt = R1 + R2 + R3. 10 + 20 + 30 = 60 Ohms.",
-      reference: "Series Circuit Calculation"
+      question: "VOR receivers must be tested this often for IFR flight operations.",
+      answers: ["Every 15 days", "Every 30 days", "Every 60 days", "Every 100 hours"],
+      correctIndex: 1,
+      explanation: "FAR 91.171 requires VOR receiver checks every 30 days for IFR operations.",
+      reference: "VOR Testing Requirements"
     },
     {
-      id: "ser-204",
+      id: "test-204",
       difficulty: 4,
       pointValue: 800,
       timeLimit: 18,
-      question: "This law states that the sum of all voltage drops in a series loop equals the source voltage.",
-      answers: ["Ohm's Law", "Kirchhoff's Current Law (KCL)", "Watt's Law", "Kirchhoff's Voltage Law (KVL)"],
-      correctIndex: 3,
-      explanation: "Kirchhoff's Voltage Law (KVL) describes how voltage is distributed in a closed loop.",
-      reference: "Kirchhoff's Voltage Law"
+      question: "The tolerance for a VOR ground checkpoint is this many degrees.",
+      answers: ["±2°", "±4°", "±6°", "±8°"],
+      correctIndex: 1,
+      explanation: "VOR ground checkpoints must indicate within ±4° of the published radial.",
+      reference: "VOR Checkpoint Tolerances"
     },
     {
-      id: "ser-205",
+      id: "test-205",
       difficulty: 5,
       pointValue: 1000,
       timeLimit: 20,
-      question: "If one of three bulbs connected in series burns out (fails open), what happens to the other two?",
-      answers: ["They get brighter", "They get dimmer", "They both go out", "They are unaffected"],
-      correctIndex: 2,
-      explanation: "A burned-out bulb creates an open circuit, breaking the only path for current and stopping all flow.",
-      reference: "Series Circuit Troubleshooting"
+      question: "When performing a VOR dual check, the two receivers must agree within this tolerance.",
+      answers: ["±2°", "±4°", "±6°", "±10°"],
+      correctIndex: 1,
+      explanation: "For a VOR dual check, two independent receivers must indicate bearings within 4° of each other.",
+      reference: "VOR Dual Check"
     }
   ],
 
-  "Parallel Circuits": [
+  "VOR Types & Facilities": [
     {
-      id: "par-201",
+      id: "fac-201",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "What is the rule for voltage in a parallel circuit?",
-      answers: ["It is the same across all branches", "It divides equally among all branches", "It is zero across all branches", "It is highest at the first branch"],
-      correctIndex: 0,
-      explanation: "Components in parallel are connected across the same two points, so they must have the same voltage.",
-      reference: "Parallel Circuit Rules"
+      question: "VORTAC combines VOR with this military navigation system.",
+      answers: ["RADAR", "TACAN", "GPS", "LORAN"],
+      correctIndex: 1,
+      explanation: "VORTAC combines VOR (civilian azimuth) with TACAN (military distance/azimuth) at the same location.",
+      reference: "VORTAC"
     },
     {
-      id: "par-202",
+      id: "fac-202",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 14,
-      question: "This law states that the total current entering a junction must equal the total current leaving it.",
-      answers: ["Ohm's Law", "Kirchhoff's Current Law (KCL)", "Watt's Law", "Kirchhoff's Voltage Law (KVL)"],
-      correctIndex: 1,
-      explanation: "Kirchhoff's Current Law (KCL) describes how current splits in parallel branches.",
-      reference: "Kirchhoff's Current Law"
+      question: "DME in a VOR/DME facility operates in this frequency range.",
+      answers: ["108-118 MHz", "225-400 MHz", "960-1215 MHz", "1030-1090 MHz"],
+      correctIndex: 2,
+      explanation: "DME (Distance Measuring Equipment) operates on UHF frequencies between 960 and 1215 MHz.",
+      reference: "VOR/DME"
     },
     {
-      id: "par-203",
+      id: "fac-203",
       difficulty: 4,
       pointValue: 600,
       timeLimit: 16,
-      question: "Two 10-ohm resistors are in parallel. What is their total resistance?",
-      answers: ["20 Ohms", "10 Ohms", "5 Ohms", "0 Ohms"],
-      correctIndex: 2,
-      explanation: "Using (R1*R2)/(R1+R2): (10*10)/(10+10) = 100/20 = 5 Ohms. Total R is always less than the smallest branch.",
-      reference: "Parallel Circuit Calculation"
+      question: "DVOR stands for this advanced type of VOR system.",
+      answers: ["Digital VOR", "Doppler VOR", "Dual VOR", "Directional VOR"],
+      correctIndex: 1,
+      explanation: "DVOR (Doppler VOR) uses Doppler effect instead of mechanical rotation for the variable phase signal.",
+      reference: "Doppler VOR"
     },
     {
-      id: "par-204",
+      id: "fac-204",
       difficulty: 4,
       pointValue: 800,
       timeLimit: 18,
-      question: "In a parallel circuit, total current (It) is calculated by:",
-      answers: ["Using the smallest branch current", "Averaging all branch currents", "Adding all individual branch currents", "It = I1 x I2 x I3..."],
-      correctIndex: 2,
-      explanation: "Total current is the sum of the currents in each branch: It = I1 + I2 + I3 + ...",
-      reference: "Parallel Circuit Rules"
+      question: "A Terminal VOR provides service up to this distance and altitude.",
+      answers: ["25 NM / 12,000 ft", "40 NM / 18,000 ft", "100 NM / 45,000 ft", "130 NM / 60,000 ft"],
+      correctIndex: 0,
+      explanation: "Terminal (T) VORs provide service to 25 NM up to 12,000 feet AGL.",
+      reference: "VOR Service Volumes"
     },
     {
-      id: "par-205",
+      id: "fac-205",
       difficulty: 5,
       pointValue: 1000,
       timeLimit: 20,
-      question: "If one of three bulbs connected in parallel burns out (fails open), what happens to the other two?",
-      answers: ["They get brighter", "They get dimmer", "They both go out", "They are unaffected"],
-      correctIndex: 3,
-      explanation: "Each parallel branch is independent. An open in one branch does not affect the others.",
-      reference: "Parallel Circuit Troubleshooting"
+      question: "DVOR systems have this advantage over conventional VOR.",
+      answers: ["Longer range", "Higher power", "Less site error", "Faster signal processing"],
+      correctIndex: 2,
+      explanation: "DVORs are less susceptible to site error from terrain reflections and are more accurate than conventional VORs.",
+      reference: "DVOR Advantages"
     }
   ],
 
-  "Multimeter & Troubleshooting": [
+  "VOR Errors & Troubleshooting": [
     {
-      id: "mtr-201",
+      id: "err-201",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "To measure voltage (VDC), a multimeter must be connected:",
-      answers: ["In series with the circuit", "In parallel (across) the component", "With the circuit power OFF", "In the AMPS jack"],
-      correctIndex: 1,
-      explanation: "Voltage is a measurement of potential difference, so the meter must be placed in parallel (across) the points.",
-      reference: "Multimeter Usage"
+      question: "VOR signals propagate by this method, limiting reception to line-of-sight.",
+      answers: ["Ground wave", "Sky wave", "Line-of-sight VHF", "Tropospheric scatter"],
+      correctIndex: 2,
+      explanation: "VOR signals travel by line-of-sight propagation and are blocked by terrain and earth's curvature.",
+      reference: "VOR Propagation"
     },
     {
-      id: "mtr-202",
+      id: "err-202",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 14,
-      question: "To measure current (AMPS), a multimeter must be connected:",
-      answers: ["In series (in-line) with the circuit", "In parallel (across) the component", "With the circuit power OFF", "In the VOLTS jack"],
-      correctIndex: 0,
-      explanation: "Current is a measure of flow, so the circuit must be opened and the meter placed in series (in-line).",
-      reference: "Multimeter Usage"
+      question: "This type of VOR error is caused by terrain reflections near the ground station.",
+      answers: ["Propagation error", "Site error", "Quadrantal error", "Scalloping error"],
+      correctIndex: 1,
+      explanation: "Site error results from signal reflections off terrain, buildings, or obstructions near the VOR station.",
+      reference: "VOR Site Error"
     },
     {
-      id: "mtr-203",
+      id: "err-203",
       difficulty: 4,
       pointValue: 600,
       timeLimit: 16,
-      question: "What is the most critical safety step before measuring resistance (Ohms)?",
-      answers: ["Set the meter to the highest range", "Verify the meter's battery is good", "Ensure all circuit power is OFF", "Use alligator clips for safety"],
-      correctIndex: 2,
-      explanation: "An ohmmeter sends its own voltage. Measuring a powered circuit will, at minimum, destroy the meter.",
-      reference: "Multimeter Safety"
+      question: "VOR quadrantal error is caused by signal reflection off this source.",
+      answers: ["Nearby VOR stations", "Aircraft structure", "Ionosphere", "Ground terrain"],
+      correctIndex: 1,
+      explanation: "Quadrantal error is aircraft-induced error from VOR signal reflection off the aircraft structure, varying with heading.",
+      reference: "Quadrantal Error"
     },
     {
-      id: "mtr-204",
+      id: "err-204",
       difficulty: 4,
       pointValue: 800,
       timeLimit: 18,
-      question: "A technician reads 'OL' or 'Infinity' on their ohmmeter when checking a wire. This indicates:",
-      answers: ["A 'short circuit' to ground", "A good, low-resistance wire", "An 'open circuit' or break", "The wire has high current"],
+      question: "VOR antennas should be mounted in this location for optimal performance.",
+      answers: ["Under the fuselage", "Inside the cockpit", "On top of vertical stabilizer", "On the wing tips"],
       correctIndex: 2,
-      explanation: "'OL' (Over Limit) means the resistance is too high to measure, indicating a break (an open circuit).",
-      reference: "Troubleshooting Opens"
+      explanation: "VOR antennas need clear line-of-sight, typically mounted on top of vertical stabilizer or fuselage to minimize obstructions.",
+      reference: "VOR Antenna Placement"
     },
     {
-      id: "mtr-205",
+      id: "err-205",
       difficulty: 5,
       pointValue: 1000,
       timeLimit: 20,
-      question: "A technician reads 0.2 Ohms when measuring from a wire to the aircraft airframe. This indicates:",
-      answers: ["A 'short circuit' to ground", "A good, isolated wire", "An 'open circuit' in the wire", "The wire's normal resistance"],
-      correctIndex: 0,
-      explanation: "A very low resistance path from a wire to ground (airframe) is the definition of a short circuit.",
-      reference: "Troubleshooting Shorts"
+      question: "The VOR monitor system automatically does this when parameters exceed tolerances.",
+      answers: ["Increases power", "Switches to backup", "Removes identifier or shuts down", "Sends alert to pilots"],
+      correctIndex: 2,
+      explanation: "VOR monitors automatically remove the identifier or shut down the station if signal integrity fails, preventing unreliable navigation.",
+      reference: "VOR Monitoring"
     }
   ],
 
   // ==================== FINAL JEOPARDY ====================
 
   FINAL: {
-    cat: "Applied Circuit Troubleshooting",
+    cat: "VOR Navigation Procedures",
     difficulty: 5,
     timeLimit: 30,
-    question: "A component does not work. A technician measures 28V at the component's positive terminal and 26V at its ground terminal (relative to airframe). The circuit breaker is NOT tripped. What is the most likely fault?",
+    question: "A pilot tunes a VOR, hears the identifier clearly, but the CDI shows full-scale deflection with the TO/FROM indicator blank. The VOR station is verified operational. What is the most likely cause of this indication?",
     answers: [
-      "A short circuit in the power wire",
-      "A high-resistance (open) ground connection",
-      "A failed (open) component",
-      "A shorted (failed) component"
+      "The aircraft is in the cone of confusion directly over the station",
+      "VOR receiver has failed or signal is too weak",
+      "Aircraft is beyond the service volume of the VOR",
+      "VOR antenna is disconnected or damaged"
     ],
     correctIndex: 1,
-    explanation: "A good ground should read near 0V. Reading 26V on the ground wire means the ground path is open or has high resistance, and the voltage is 'floating' up to the supply voltage.",
-    reference: "Troubleshooting Ground Faults"
+    explanation: "If the identifier is heard but the CDI shows OFF flag with no usable navigation, the receiver has likely failed or signal strength is insufficient. If in the cone of confusion, TO/FROM would fluctuate. If the antenna were bad, no identifier would be heard.",
+    reference: "VOR System Troubleshooting"
   }
 };
 
